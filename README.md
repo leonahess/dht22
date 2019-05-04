@@ -1,1 +1,1 @@
-# dht22
+# DHT22 submodule
