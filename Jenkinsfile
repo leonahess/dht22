@@ -70,7 +70,7 @@ pipeline {
         }
         stage('Deploy to leon-pi-zero-2') {
           agent {
-            label 'mater'
+            label 'master'
           }
           steps {
             sshagent(credentials: ['d36bc821-dad8-45f5-9afc-543f7fe483ad']) {
@@ -79,7 +79,6 @@ pipeline {
               sh "ssh -o StrictHostKeyChecking=no pirate@leon-pi-zero-2 docker run --restart always -d --name=dht22 --privileged fx8350:5000/dht22:latest"
             }
           }
-
         }
       }
     }
