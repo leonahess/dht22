@@ -1,6 +1,6 @@
-import socket
+import os
 
-if socket.gethostname() is "leon-pi-zero-1":
+if os.environ['HOSTNAME'] is "leon-pi-zero-1":
     dht22 = [
         {
             "pin": 17,
@@ -8,7 +8,7 @@ if socket.gethostname() is "leon-pi-zero-1":
         }
     ]
 
-elif socket.gethostname() is "leon-pi-zero-2":
+elif os.environ['HOSTNAME'] is "leon-pi-zero-2":
     dht22 = [
         {
             "pin": 17,
