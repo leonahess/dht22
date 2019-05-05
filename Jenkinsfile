@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build Container') {
       agent {
-        label "Pi_3"
+        label "Pi_Zero"
       }
       steps {
         sh "docker build -t hs110 ."
