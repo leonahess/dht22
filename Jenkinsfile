@@ -54,6 +54,7 @@ pipeline {
         sh "docker rmi leonhess/dht22:${env.BUILD_NUMBER}"
       }
     }
+    /*
     stage('Update main GitHub repo') {
       agent {
         label 'master'
@@ -68,6 +69,7 @@ pipeline {
         sh "rm -rf /tmp/smarthome"
       }
     }
+    */
     stage('Deploy') {
       parallel {
         stage('Deploy to leon-pi-zero-1') {
