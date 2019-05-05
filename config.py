@@ -1,7 +1,7 @@
 import socket
 
 if socket.gethostname() is "leon-pi-zero-1":
-    dht22 = dht22 = [
+    dht22 = [
         {
             "pin": 17,
             "name": "window_front"
@@ -19,6 +19,16 @@ else if socket.gethostname() is "leon-pi-zero-2":
             "name": "desk"
         }
     ]
+
+else:
+    dht22 = [
+        {
+            "pin": 17,
+            "name": "window_front"
+        }
+    ]
+
+print(dht22)
 
 
 
