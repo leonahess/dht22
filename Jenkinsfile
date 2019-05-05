@@ -56,11 +56,10 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sshagent(credentials: ['6dc73e77-76d4-4af1-86f7-f37c15c78533']) {
-          sh "ssh -o StrictHostKeyChecking=no pirate@leon-pi-zero-1"
-          sh "docker kill dht22"
-          sh "docker rm dht22"
-          sh "docker run --restart always -d --name=dht22 --privileged fx8350:5000/dht22:latest"
+        sshagent(credentials: ['d36bc821-dad8-45f5-9afc-543f7fe483ad']) {
+          sh "ssh -o StrictHostKeyChecking=no pirate@leon-pi-zero-1 docker kill dht22"
+          sh "ssh -o StrictHostKeyChecking=no pirate@leon-pi-zero-1 docker rm dht22"
+          sh "ssh -o StrictHostKeyChecking=no pirate@leon-pi-zero-1 docker run --restart always -d --name=dht22 --privileged fx8350:5000/dht22:latest"
         }
       }
     }
