@@ -59,7 +59,7 @@ pipeline {
         label 'master'
       }
       steps {
-        sh "git clone git@github.com:leonhess/smarthome.git /tmp"
+        sh "git clone git@github.com:leonhess/smarthome.git /tmp/smarthome"
         sh "cd smarthome"
         sh "git submodule update --init --remote"
         sh "git add --a"
