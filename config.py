@@ -8,7 +8,7 @@ if socket.gethostname() is "leon-pi-zero-1":
         }
     ]
 
-else if socket.gethostname() is "leon-pi-zero-2":
+elif socket.gethostname() is "leon-pi-zero-2":
     dht22 = [
         {
             "pin": 17,
@@ -20,17 +20,7 @@ else if socket.gethostname() is "leon-pi-zero-2":
         }
     ]
 
-else:
-    dht22 = [
-        {
-            "pin": 17,
-            "name": "window_front"
-        }
-    ]
-
 print(dht22)
-
-
 
 influx_ip = "192.168.66.133"
 influx_database = "smarthome"
