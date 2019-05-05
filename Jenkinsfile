@@ -90,6 +90,7 @@ pipeline {
             sshagent(credentials: ['d36bc821-dad8-45f5-9afc-543f7fe483ad']) {
               sh "ssh -o StrictHostKeyChecking=no pirate@leon-pi-zero-2 docker kill dht22"
               sh "ssh -o StrictHostKeyChecking=no pirate@leon-pi-zero-2 docker rm dht22"
+              sh "ssh -o StrictHostKeyChecking=no pirate@leon-pi-zero-2 docker image rm fx8350:5000/dht22:latest"
               sh "ssh -o StrictHostKeyChecking=no pirate@leon-pi-zero-2 docker run --restart always -d --name=dht22 --privileged fx8350:5000/dht22:latest"
             }
           }

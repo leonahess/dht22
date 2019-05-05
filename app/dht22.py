@@ -16,6 +16,9 @@ class DHT22:
         self.pin = pin
         self.name = name
 
+        print(pin)
+        print(name)
+
         self.values = []
         self.filtered_temperature = []
         self.filtered_humidity = []
