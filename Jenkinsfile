@@ -54,6 +54,20 @@ pipeline {
         sh "docker rmi leonhess/dht22:${env.BUILD_NUMBER}"
       }
     }
+    stage('Update main GitHub repo') {
+      agent {
+        label 'master'
+      }
+      steps {
+        sh "git clone git@github.com:leonhess/smarthome.git /tmp"
+        sh "cd smarthome"
+        sh "git submodule update --init --remote"
+        sh "git add --a"
+        sh "git commit -m 'updated dht22 submodule'"
+        sh "git push"
+        sh "rm -rf /tmp/smarthome"
+      }
+    }
     stage('Deploy') {
       parallel {
         stage('Deploy to leon-pi-zero-1') {
