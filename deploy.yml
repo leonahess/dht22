@@ -1,12 +1,5 @@
 - hosts: collectors
-  remote_user: root
-  become: yes
-  become_method: sudo
   tasks:
-    - name: Install pip
-      apt: name=python-pip state=present
-    - name: install docker-py package
-      pip: name=docker-py
     - name: Running the Container
       docker_container:
         image: fx8350:5000/dht22:latest
@@ -15,3 +8,4 @@
         privileged: yes
         restart_policy: always
         force_kill: yes
+        hostname: "{{ ansible_hostname }}"
