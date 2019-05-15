@@ -81,6 +81,7 @@ stage('Deploy') {
   steps {
     ansiblePlaybook(
       playbook: 'deploy.yml'
+      credentialsId: 'd36bc821-dad8-45f5-9afc-543f7fe483ad'
       )
     }
   }
