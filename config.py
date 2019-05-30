@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import socket
 
 dht22 = []
@@ -26,3 +29,17 @@ elif socket.gethostname() == "leon-pi-zero-2":
 influx_ip = "192.168.66.133"
 influx_database = "smarthome"
 influx_port = "8086"
+influx_retention_policy = "2w"
+
+'''
+possible retention intervals:
+
+ns	nanoseconds (1 billionth of a second)
+u or µ	microseconds (1 millionth of a second)
+ms	milliseconds (1 thousandth of a second)
+s	second
+m	minute
+h	hour
+d	day
+w	week
+'''
