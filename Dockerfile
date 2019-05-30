@@ -1,7 +1,10 @@
 FROM python:alpine
 RUN apk add build-base
 
-ADD . .
+ADD smarthome_dht22.py .
+ADD config.py .
+ADD app .
+ADD requirements.txt .
 
 WORKDIR .
 
