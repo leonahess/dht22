@@ -52,11 +52,11 @@ pipeline {
         label "Pi_Zero"
       }
       steps {
-        sh "docker rmi dht22"
-        sh "docker rmi fx8350:5000/dht22:latest"
-        sh "docker rmi fx8350:5000/dht22:${env.BUILD_NUMBER}"
-        sh "docker rmi leonhess/dht22:latest"
-        sh "docker rmi leonhess/dht22:${env.BUILD_NUMBER}"
+        sh "docker rmi -f dht22"
+        sh "docker rmi -f fx8350:5000/dht22:latest"
+        sh "docker rmi -f fx8350:5000/dht22:${env.BUILD_NUMBER}"
+        sh "docker rmi -f leonhess/dht22:latest"
+        sh "docker rmi -f leonhess/dht22:${env.BUILD_NUMBER}"
       }
     }
     stage('Deploy') {
