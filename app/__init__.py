@@ -7,7 +7,7 @@ print("< connected to influx!")
 print("> checking if database 'smarthome' exists ...")
 
 database_list = client.get_list_database()
-retention_list = client.get_list_retention_policies()
+retention_list = client.get_list_retention_policies(database="smarthome")
 smarthome_exists = False
 
 for s in range(0, len(database_list)):
