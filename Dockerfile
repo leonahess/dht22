@@ -3,7 +3,7 @@ RUN apk add build-base
 
 ADD smarthome_dht22.py .
 ADD config.py .
-ADD app .
+ADD app ./app
 ADD requirements.txt .
 
 WORKDIR .
