@@ -18,8 +18,8 @@ class DHT22:
         self.pin = pin
         self.name = name
 
-        print(pin)
-        print(name)
+        print("> Sensor on Pin: {}".format(pin))
+        print("> Name of Sensor: {}".format(name))
 
         self.values = []
         self.filtered_temperature = []
@@ -119,6 +119,7 @@ class DHT22:
             json = self.assemble_json()
 
             try:
-                client.write_points(json, protocol="json", retention_policy=config.influx_retention_policy)
+                write_status = client.write_points(json, protocol="json", retention_policy=config.influx_retention_policy)
+                print("Sucessfull write: {}".format(write_status))
             except Exception as e:
                 print(e)
