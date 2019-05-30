@@ -60,7 +60,7 @@ class DHT22:
 
             self.filtered_temperature.append(statistics.mean(x))
             self.filtered_humidity.append(statistics.mean(y))
-            print(self.filtered_humidity, self.filtered_temperature)
+            # print(self.filtered_humidity, self.filtered_temperature)
 
         else:
             print("dht read failed")
