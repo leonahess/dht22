@@ -18,9 +18,7 @@ pipeline {
       }
       steps {
         sh "docker tag dht22 fx8350:5000/dht22:latest"
-        sh "docker tag dht22 fx8350:5000/dht22:${env.BUILD_NUMBER}"
         sh "docker tag dht22 leonhess/dht22:latest"
-        sh "docker tag dht22 leonhess/dht22:${env.BUILD_NUMBER}"
       }
     }
     stage('Push to Registries') {
@@ -30,7 +28,6 @@ pipeline {
             label "Pi_Zero"
           }
           steps {
-            sh "docker push fx8350:5000/dht22:${env.BUILD_NUMBER}"
             sh "docker push fx8350:5000/dht22:latest"
           }
         }
@@ -40,7 +37,6 @@ pipeline {
           }
           steps {
             withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
-              sh "docker push leonhess/dht22:${env.BUILD_NUMBER}"
               sh "docker push leonhess/dht22:latest"
             }
           }
@@ -54,9 +50,7 @@ pipeline {
       steps {
         sh "docker rmi -f dht22"
         sh "docker rmi -f fx8350:5000/dht22:latest"
-        sh "docker rmi -f fx8350:5000/dht22:${env.BUILD_NUMBER}"
         sh "docker rmi -f leonhess/dht22:latest"
-        sh "docker rmi -f leonhess/dht22:${env.BUILD_NUMBER}"
       }
     }
     stage('Deploy') {
